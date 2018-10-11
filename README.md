@@ -14,7 +14,7 @@ The [tests are heavily commented](cypress/integration/app_spec.js) to ease you i
 
 [You can find the official TodoMVC tests we are comparing to here.](https://github.com/tastejs/todomvc/blob/master/tests/test.js) [And here.](https://github.com/tastejs/todomvc/blob/master/tests/page.js) [And here.](https://github.com/tastejs/todomvc/blob/master/tests/testOperations.js)
 
-## Help + Testing
+## Help + Testing Sandeep
 
 The steps below will take you all the way through Cypress. It is assumed you have nothing installed except for node + git.
 
