@@ -33,7 +33,7 @@ before_script:
   ## we use the '&' ampersand which tells
   ## travis to run this process in the background
   ## else it would block execution and hang travis
-  - npm cypress:run:chrome -- --silent &
+  - npm start -- --cypress:run:chrome &
 
 script:
   ## now run cypress headlessly
@@ -43,6 +43,7 @@ script:
   ## variable by default and apply
   ## this to the run.
   #- npm run cypress:run
+  #-npm cypress:run:chrome
 
   ## alternatively we could specify
   ## a specific record key to use
