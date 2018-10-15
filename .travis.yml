@@ -2,23 +2,23 @@
 ## in node so thats what we select.
 ## Cypress is agnostic to your apps
 ## backend language though.
-language: node_js
+##language: node_js
 
-node_js:
-  - 10
+##node_js:
+  ##- 10
 
 ## Cache NPM folder and Cypress binary
 ## to avoid downloading Cypress again and again
-cache:
-  directories:
-    - ~/.npm
-    - ~/.cache
+##cache:
+  ##directories:
+   ## - ~/.npm
+   ## - ~/.cache
 
-install:
+##install:
   # use the new "ci" command for fastest installs on CI
-  - npm ci
+  ##- npm ci
 
-before_script:
+##before_script:
   ## runs the 'start' script which
   ## boots our local app server on port 8888
   ## which cypress expects to be running
@@ -33,9 +33,9 @@ before_script:
   ## we use the '&' ampersand which tells
   ## travis to run this process in the background
   ## else it would block execution and hang travis
-  - npm start -- --silent &
+  ##- npm start -- --silent &
 
-script:
+##script:
   ## now run cypress headlessly
   ## and record all of the tests.
   ## Cypress will search for a
@@ -49,4 +49,21 @@ script:
   ## a specific record key to use
   ## like this without having to
   ## configure environment variables
-  - cypress run --record --key 74f3a213-4240-4838-883a-aa50e5cc3bf0
+  ##- cypress run --record --key 74f3a213-4240-4838-883a-aa50e5cc3bf0
+  
+  
+  
+  
+  language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+  - node_modules
+script:
+  - npm test
+  - npm run percy
+  - npm run build
+  - npm run start &
+  # - sleep 30 && npm run test:interaction
+  - sleep 30 && $(npm bin)/cypress run --record --browser chrome
